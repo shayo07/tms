@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class term extends Model
+{
+    use HasFactory;
+    protected $table = 'term';
+    protected $fillable = ['slug','term_name', 'year', 'status', 'created_by', 'is_active'];
+
+    public function student(){
+        return $this->hasMany('student');
+    }
+
+    public function user(){
+        return $this->hasMany(User::class);
+    }
+
+    public function schoollogbooks(){
+        return $this->hasMany(schoollogbook::class);
+    }
+
+    public function schoolscheme(){
+        return $this->hasMany(schoolscheme::class);
+    }
+
+
+
+}
