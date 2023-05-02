@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LessonDevelopmentController;
 use App\Http\Controllers\LogbookController;
 use App\Http\Controllers\SchemeController;
 use App\Http\Controllers\SchoolLogbookController;
@@ -38,6 +39,8 @@ Route::resource('/logbook', LogbookController::class);
 
 Route::get('/mylogbooks/{schoollogbook}', [SchoolLogbookController::class, 'viewlogs']);
 
+Route::get('/myschemes/{schoolscheme}', [SchoolSchemeController::class, 'viewschemes']);
+
 Route::resource('/darasa', DarasaController::class);
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index']);
@@ -47,6 +50,8 @@ Route::resource('/schoolscheme', SchoolSchemeController::class);
 Route::resource('/schoollogbook', SchoolLogbookController::class);
 
 Route::resource('/scheme', SchemeController::class);
+
+Route::resource('/lesson_development', LessonDevelopmentController::class);
 
 
 

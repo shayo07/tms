@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lessondevelopment', function (Blueprint $table) {
+        Schema::create('lessondevelopments', function (Blueprint $table) {
             $table->id();
             $table->string('slug')->unique();
             $table->unsignedBigInteger('term_id');
             $table->string('name');
+            $table->string('is_active');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->unsignedBigInteger('class');
+            $table->unsignedBigInteger('darasa_id');
             $table->bigInteger('created_by');
             $table->timestamp('created_at')->useCurrent();
             $table->bigInteger('updated_by')->nullable();
@@ -25,14 +26,14 @@ return new class extends Migration
             $table->bigInteger('deleted_by')->nullable();
             $table->timestamp('deleted_at')->nullable();
             $table->foreign('term_id')->references('id')->on('term')->onDelete('cascade');
-            $table->foreign('class')->references('id')->on('darasa')->onDelete('cascade');
+            $table->foreign('class_id')->references('id')->on('darasa')->onDelete('cascade');
         });
 
 
         Schema::create('lesson_plan', function (Blueprint $table){
             $table->id();
             $table->string('slug')->unique();
-            $table->unsignedBigInteger('lessondevelopment');
+            $table->unsignedBigInteger('lessondevelopment_id');
             $table->string('periods');
             $table->string('time');
             $table->string('boys_registered');
@@ -52,13 +53,13 @@ return new class extends Migration
             $table->timestamp('updated_at')->nullable();
             $table->bigInteger('deleted_by')->nullable();
             $table->timestamp('deleted_at')->nullable();
-            $table->foreign('lessondevelopment')->references('id')->on('lessondevelopment')->onDelete('cascade');
+            $table->foreign('lessondevelopment_id')->references('id')->on('lessondevelopment')->onDelete('cascade');
         });
 
         Schema::create('lesson_dev', function (Blueprint $table){
             $table->id();
             $table->string('slug')->unique();
-            $table->unsignedBigInteger('lessondevelopment');
+            $table->unsignedBigInteger('lessondevelopment_id');
             $table->string('stage');
             $table->string('time');
             $table->string('teaching_activities');
@@ -70,13 +71,13 @@ return new class extends Migration
             $table->timestamp('updated_at')->nullable();
             $table->bigInteger('deleted_by')->nullable();
             $table->timestamp('deleted_at')->nullable();
-            $table->foreign('lessondevelopment')->references('id')->on('lessondevelopment')->onDelete('cascade');
+            $table->foreign('lessondevelopment_id')->references('id')->on('lessondevelopment')->onDelete('cascade');
         });
 
-        Schema::create('lesson_evaluation', function (Blueprint $table){
+        Schema::create('lesson_evaluations', function (Blueprint $table){
             $table->id();
             $table->string('slug')->unique();
-            $table->unsignedBigInteger('lessondevelopment');
+            $table->unsignedBigInteger('lesson_development_id');
             $table->string('student_evaluation');
             $table->string('teachers_evaluation');
             $table->string('remarks');
@@ -86,7 +87,7 @@ return new class extends Migration
             $table->timestamp('updated_at')->nullable();
             $table->bigInteger('deleted_by')->nullable();
             $table->timestamp('deleted_at')->nullable();
-            $table->foreign('lessondevelopment')->references('id')->on('lessondevelopment')->onDelete('cascade');
+            $table->foreign('lessondevelopment_id')->references('id')->on('lessondevelopment')->onDelete('cascade');
         });
     }
 

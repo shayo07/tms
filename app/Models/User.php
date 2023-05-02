@@ -56,4 +56,8 @@ class User extends Authenticatable
     public function schoolscheme(){
         return $this->hasMany(schoolscheme::class);
     }
+
+    public function lessondevelopment(){
+        return $this->hasMany(Lesson_development::class);
+    }
 }

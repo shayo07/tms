@@ -9,7 +9,7 @@ class logbook extends Model
 {
     use HasFactory;
 
-    protected $fillable= ['slug', 'school_logbook_id', 'week_number', 'month_number', 'main_topic', 'sub_topic', 'time_start',
+    protected $fillable= ['slug', 'schoollogbook_id', 'week_number', 'month_number', 'main_topic', 'sub_topic', 'time_start',
         'time_finish', 'concept_covered', 'teachers_comment', 'headofdepartment_comment', 'headteachers_comment', 'created_by'];
 
     protected $table= 'logbook';

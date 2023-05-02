@@ -37,7 +37,7 @@ class LogbookController extends Controller
     public function store(Request $request)
     {
         $formdata = $request->validate([
-            'school_logbook_id' => 'required',
+            'schoollogbook_id' => 'required',
             'week_number' => 'required',
             'month_number' => 'required',
             'main_topic' => 'required',
@@ -79,7 +79,7 @@ class LogbookController extends Controller
     public function update(Request $request, logbook $logbook)
     {
         $formdata = $request->validate([
-            'school_logbook_id' => 'required',
+            'schoollogbook_id' => 'required',
             'week_number' => 'required',
             'month_number' => 'required',
             'main_topic' => 'required',

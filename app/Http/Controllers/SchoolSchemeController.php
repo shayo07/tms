@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\darasa;
+use App\Models\scheme;
 use App\Models\schoolscheme;
 use App\Models\term;
 use App\Models\User;
@@ -59,9 +60,9 @@ class SchoolSchemeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(schoolscheme $schoolscheme)
     {
-        //
+        return view('scheme.scheme_view', compact('schoolscheme'));
     }
 
     /**
@@ -104,6 +105,7 @@ class SchoolSchemeController extends Controller
         return redirect()->route('schoolscheme.index') ->with('success', 'scheme deleted successful');
 
     }
+
 
 
 }

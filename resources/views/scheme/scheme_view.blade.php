@@ -39,15 +39,14 @@
                                     <th>Month</th>
                                     <th>Main Topic</th>
                                     <th>Details</th>
-
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($schemes as $scheme)
+                                @foreach($schoolscheme->schemes as $scheme)
                                     <tr>
-                                        <td>{{$scheme->school_logbook->log_name}}</td>
-                                        <td>{{$scheme->week_number}}</td>
-                                        <td>{{$scheme->month_number}}</td>
+                                        <td>{{$schoolscheme->scheme_name}}</td>
+                                        <td>{{$scheme->week}}</td>
+                                        <td>{{$scheme->month}}</td>
                                         <td>{{$scheme->main_topic}}</td>
                                         <td><a href="{{ route('scheme.show', $scheme->slug)}}"><span class="badge bg-primary p-2">Details</span></a></td>
                                     </tr>

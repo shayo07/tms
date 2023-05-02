@@ -33,7 +33,7 @@ return new class extends Migration
         Schema::create('scheme', function (Blueprint $table){
             $table->id();
             $table->string('slug')->unique();
-            $table->unsignedBigInteger('schoolScheme_id');
+            $table->unsignedBigInteger('school_scheme_id');
             $table->string('competence');
             $table->string('objectives');
             $table->string('month');
@@ -53,7 +53,7 @@ return new class extends Migration
             $table->timestamp('updated_at')->nullable();
             $table->bigInteger('deleted_by')->nullable();
             $table->timestamp('deleted_at')->nullable();
-            $table->foreign('schoolScheme_id')->references('id')->on('schoolscheme')->onDelete('cascade');
+            $table->foreign('school_scheme_id')->references('id')->on('schoolscheme')->onDelete('cascade');
         });
     }
 

@@ -18,7 +18,7 @@ class schoolscheme extends Model
         return $this->belongsTo(term::class);
     }
 
-    public function scheme(){
+    public function schemes(){
         return $this->hasMany(scheme::class);
     }
 

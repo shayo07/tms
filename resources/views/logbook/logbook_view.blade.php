@@ -43,9 +43,9 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($logbooks as $logbook)
+                                @foreach($schoollogbook->logbooks as $logbook)
                                     <tr>
-                                        <td>{{$logbook->school_logbook->log_name}}</td>
+                                        <td>{{$schoollogbook->log_name}}</td>
                                         <td>{{$logbook->week_number}}</td>
                                         <td>{{$logbook->month_number}}</td>
                                         <td>{{$logbook->main_topic}}</td>
@@ -67,8 +67,6 @@
         <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-
-
 
 
 @endsection

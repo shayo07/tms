@@ -57,7 +57,7 @@
                                         <td>{{$log->darasa->class_name}}</td>
                                         <td>
                                             <div class="">
-                                                <a href="/mylogbooks/{{$log->slug}}">
+                                                <a href="{{route('schoollogbook.show', $log->slug)}}">
                                                     <button class="btn btn-primary">View</button>
                                                 </a>
                                             </div>

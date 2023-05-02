@@ -11,9 +11,8 @@ class scheme extends Model
 
     protected $table = 'scheme';
 
-    protected $fillable = ['slug', 'schoolScheme_id ', 'competence', 'objectives', 'month', 'week', 'main_topic',
+    protected $fillable = ['slug', 'school_scheme_id', 'competence', 'objectives', 'month', 'week', 'main_topic',
         'sub_topic', 'periods', 'teaching_activities', 'learning_activities', 'references', 'teaching_aids', 'assesments', 'remarks', 'created_by'];
-
 
 
     public function schoolscheme(){

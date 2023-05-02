@@ -55,7 +55,7 @@
                                             <td>{{$scheme->darasa->class_name}}</td>
                                             <td>
                                                 <div class="">
-                                                    <a href=" {{route('scheme.index', ['schemeID' => $scheme->slug] )}}">
+                                                    <a href=" {{route('schoolscheme.show', $scheme->slug )}}">
                                                         <button class="btn btn-primary">View</button>
                                                     </a>
                                                 </div>

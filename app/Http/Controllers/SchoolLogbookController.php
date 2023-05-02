@@ -59,9 +59,9 @@ class SchoolLogbookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(schoollogbook $schoollogbook)
     {
-        //
+        return view('logbook.logbook_view', ['schoollogbook' => $schoollogbook] );
     }
 
     /**
@@ -91,7 +91,6 @@ class SchoolLogbookController extends Controller
         $logs->update($formdata);
         return redirect('/home')->with('success', 'logbook updated successful');
     }
-
     /**
      * Remove the specified resource from storage.
      */
@@ -103,10 +102,6 @@ class SchoolLogbookController extends Controller
         return redirect()->back()->with('success', 'logbook was removed successful!!');
     }
 
-    public function viewlogs(schoollogbook $logs)
-    {
-        $logbook = logbook::where('school_logbook_id', $logs['id'])->get();
-        return view('logbook.logbook_view', ['logbooks' => $logbook] );
-    }
+
 
 }
