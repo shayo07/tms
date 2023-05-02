@@ -16,7 +16,7 @@
                         <!-- text input -->
                         <div class="form-group">
                             <label for="inputName">Lesson Plan Name</label>
-                            <input id="name" type="text"  class="form-control @error('name') is-invalid @enderror" name="log_name" value="{{ old('name')}}" >
+                            <input id="name" type="text"  class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name')}}" >
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -77,7 +77,7 @@
 
 
                 <div class="col-4">
-                    <button type="submit" class="btn btn-primary btn-block">Add School Logbook</button>
+                    <button type="submit" class="btn btn-primary btn-block">Add School Lessonplan</button>
                 </div>
 
             </form>

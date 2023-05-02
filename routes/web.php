@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LessonDevelopmentController;
+use App\Http\Controllers\LessonPlanController;
 use App\Http\Controllers\LogbookController;
 use App\Http\Controllers\SchemeController;
 use App\Http\Controllers\SchoolLogbookController;
@@ -52,6 +53,8 @@ Route::resource('/schoollogbook', SchoolLogbookController::class);
 Route::resource('/scheme', SchemeController::class);
 
 Route::resource('/lesson_development', LessonDevelopmentController::class);
+
+Route::resource('/lesson_plan', LessonPlanController::class);
 
 
 

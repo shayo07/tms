@@ -4,7 +4,7 @@
 
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Logbook details</h3>
+            <h3 class="card-title">Lesson Plan Details</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -20,46 +20,64 @@
                 <tbody>
                 <tr>
                     <td>1.</td>
-                    <td>Week Number</td>
+                    <td>School Lesson Plan</td>
                     <td><b>
-                            {{$scheme->week}}
+                            {{$lesson_plan->lessondevelopment->name}}
                         </b>
                     </td>
 
                 </tr>
                 <tr>
                     <td>2.</td>
-                    <td>Month Number</td>
+                    <td>Periods</td>
                     <td>
                         <b>
-                            {{$scheme->month}}
+                            {{$lesson_plan->periods}}
                         </b>
                     </td>
                 </tr>
                 <tr>
                     <td>3.</td>
-                    <td>Periods</td>
+                    <td>Time</td>
                     <td>
                         <b>
-                            {{$scheme->periods}}
+                            {{$lesson_plan->time}}
                         </b>
                     </td>
                 </tr>
                 <tr>
                     <td>4.</td>
-                    <td>Objectives</td>
+                    <td>Boys Registered</td>
                     <td>
                         <b>
-                            {{$scheme->objectives}}
+                            {{$lesson_plan->boys_registered}}
                         </b>
                     </td>
                 </tr>
                 <tr>
                     <td>5.</td>
-                    <td>Competence</td>
+                    <td>Girls Registered</td>
                     <td>
                         <b>
-                            {{$scheme->competence}}
+                            {{$lesson_plan->girls_registered}}
+                        </b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5.</td>
+                    <td>Boys Present</td>
+                    <td>
+                        <b>
+                            {{$lesson_plan->boys_present}}
+                        </b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5.</td>
+                    <td>Girls Present</td>
+                    <td>
+                        <b>
+                            {{$lesson_plan->girls_present}}
                         </b>
                     </td>
                 </tr>
@@ -67,37 +85,46 @@
                     <td>6.</td>
                     <td>Main Topic</td>
                     <td>
-                            <div class="form-group">
-                                <b>
-                                <textarea id="main_topic" class=" form-control border-0 bg-white" rows="3" disabled>{{ $scheme->main_topic}}</textarea>
-                                </b>
-                            </div>
-
+                        <div class="form-group">
+                            <b>
+                                <textarea id="main_topic" class=" form-control border-0 bg-white" rows="3" disabled>{{ $lesson_plan->competence}}</textarea>
+                            </b>
+                        </div>
                     </td>
-
+                </tr>
+                <tr>
+                    <td>6.</td>
+                    <td>Main Topic</td>
+                    <td>
+                        <div class="form-group">
+                            <b>
+                                <textarea id="main_topic" class=" form-control border-0 bg-white" rows="3" disabled>{{ $lesson_plan->topic}}</textarea>
+                            </b>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>7.</td>
                     <td>Sub topic</td>
                     <td>
 
-                            <div class="form-group">
-                                <b>
-                                <textarea id="main_topic" class=" form-control border-0 bg-white" rows="3" disabled>{{ $scheme->sub_topic}}</textarea>
-                                </b>
-                            </div>
+                        <div class="form-group">
+                            <b>
+                                <textarea id="main_topic" class=" form-control border-0 bg-white" rows="3" disabled>{{ $lesson_plan->sub_topic}}</textarea>
+                            </b>
+                        </div>
 
                     </td>
                 </tr>
 
                 <tr>
                     <td>8.</td>
-                    <td>Teaching Activities</td>
+                    <td>General Objectives</td>
                     <td>
 
                         <div class="form-group">
                             <b>
-                            <textarea id="main_topic" class=" form-control border-0 bg-white" rows="3" disabled>{{ $scheme->teaching_activities}}</textarea>
+                                <textarea id="main_topic" class=" form-control border-0 bg-white" rows="3" disabled>{{ $lesson_plan->general_objectives}}</textarea>
                             </b>
                         </div>
 
@@ -106,12 +133,25 @@
 
                 <tr>
                     <td>9.</td>
-                    <td>Learning Activities</td>
+                    <td>Specific Objectives</td>
                     <td>
 
                         <div class="form-group">
                             <b>
-                            <textarea id="main_topic" class=" form-control border-0 bg-white" rows="3" disabled>{{ $scheme->learning_activities}}</textarea>
+                                <textarea id="main_topic" class=" form-control border-0 bg-white" rows="3" disabled>{{ $lesson_plan->specific_objectives}}</textarea>
+                            </b>
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>10.</td>
+                    <td>Learning Material</td>
+                    <td>
+
+                        <div class="form-group">
+                            <b>
+                                <textarea id="main_topic" class=" form-control border-0 bg-white" rows="3" disabled>{{ $lesson_plan->teachers_learning_material}}</textarea>
                             </b>
                         </div>
 
@@ -124,51 +164,13 @@
 
                         <div class="form-group">
                             <b>
-                            <textarea id="main_topic" class=" form-control border-0 bg-white" rows="3" disabled>{{ $scheme->references}}</textarea>
+                                <textarea id="main_topic" class=" form-control border-0 bg-white" rows="3" disabled>{{ $lesson_plan->reference}}</textarea>
                             </b>
                         </div>
 
                     </td>
                 </tr>
-                <tr>
-                    <td>11.</td>
-                    <td>Activities</td>
-                    <td>
 
-                        <div class="form-group">
-                            <b>
-                            <textarea id="main_topic" class=" form-control border-0 bg-white" rows="3" disabled>{{ $scheme->teaching_aids}}</textarea>
-                            </b>
-                        </div>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>12.</td>
-                    <td>Assesments</td>
-                    <td>
-
-                        <div class="form-group">
-                            <b>
-                            <textarea id="main_topic" class=" form-control border-0 bg-white" rows="3" disabled>{{ $scheme->assesments}}</textarea>
-                            </b>
-                        </div>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td>13.</td>
-                    <td>remarks</td>
-                    <td>
-
-                        <div class="form-group">
-                            <b>
-                            <textarea id="main_topic" class=" form-control border-0 bg-white" rows="3" disabled>{{ $scheme->remarks}}</textarea>
-                            </b>
-                        </div>
-
-                    </td>
-                </tr>
                 </tbody>
             </table>
         </div>
@@ -176,13 +178,13 @@
         <div class="card-footer clearfix">
             <div class="row">
                 <div class="padding-2">
-                    <a href="{{route('scheme.edit', $scheme->slug) }}">
+                    <a href="{{route('lesson_plan.edit', $lesson_plan->slug) }}">
                         <button class="btn btn-primary">edit</button>
                     </a>
                 </div>
 
                 <div class="padding-2 ml-1">
-                    <form action="{{ route('scheme.destroy', $scheme->slug) }}" method="post" >
+                    <form action="{{ route('lesson_plan.destroy', $lesson_plan->slug) }}" method="post" >
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
@@ -190,6 +192,21 @@
                 </div>
 
             </div>
+        </div>
+
+        <div class="row py-2">
+            <div class="padding-2">
+                <a href="{{route('lesson_plan.edit', $lesson_plan->slug) }}">
+                    <button class="btn btn-primary">Lesson Development</button>
+                </a>
+            </div>
+
+            <div class="padding-2 ml-1">
+                <a href="{{route('lesson_plan.edit', $lesson_plan->slug) }}">
+                    <button class="btn btn-primary">Lesson Evaluation</button>
+                </a>
+            </div>
+
         </div>
     </div>
     <!-- /.card -->

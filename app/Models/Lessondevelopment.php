@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Lesson_development extends Model
+class Lessondevelopment extends Model
 {
     use HasFactory;
 
@@ -13,7 +13,7 @@ class Lesson_development extends Model
 
     protected  $fillable = ['slug', 'term_id', 'name', 'user_id', 'darasa_id', 'created_by', 'is_active'];
 
-    public function users(){
+    public function user(){
         return $this->belongsTo(User::class);
     }
 
@@ -23,5 +23,9 @@ class Lesson_development extends Model
 
     public function darasa(){
         return $this->belongsTo(darasa::class);
+    }
+
+    public function lesson_plan(){
+        return $this->hasMany(Lesson_plan::class);
     }
 }

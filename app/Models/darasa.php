@@ -27,7 +27,7 @@ class darasa extends Model
     }
 
     public function lessondevelopment(){
-        return $this->hasMany(Lesson_development::class);
+        return $this->hasMany(Lessondevelopment::class);
     }
 
 }

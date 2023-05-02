@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Models\darasa;
+use App\Models\Lesson_plan;
+use App\Models\Lessondevelopment;
 use App\Models\logbook;
 use App\Models\scheme;
 use App\Models\schoollogbook;
@@ -64,8 +66,12 @@ class RouteServiceProvider extends ServiceProvider
             return scheme::where('slug', $slug)->first();
         });
 
-        Route::bind('myschemes', function ($slug){
-            return scheme::where('slug', $slug)->first();
+        Route::bind('lesson_development', function ($slug){
+            return Lessondevelopment::where('slug', $slug)->first();
+        });
+
+        Route::bind('lesson_plan', function ($slug){
+            return Lesson_plan::where('slug', $slug)->first();
         });
 
         RateLimiter::for('api', function (Request $request) {
