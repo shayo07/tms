@@ -6,7 +6,9 @@ use App\Models\darasa;
 use App\Models\Lessondevelopment;
 use App\Models\term;
 use App\Models\User;
+use Illuminate\Auth\Access\Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class LessonDevelopmentController extends Controller
@@ -16,17 +18,23 @@ class LessonDevelopmentController extends Controller
      */
     public function index()
     {
-        //
-        $lesson_developments = Lessondevelopment::where('is_active', 1)->get();
+        if (Auth::user()->is_admin) {
+            $lesson_developments = Lessondevelopment::where('is_active', 1)->get();
+        }
+        else{
+            $lesson_developments = Lessondevelopment::where('user_id', Auth::user()->id)->where('is_active', 1)->get();
+        }
         return view('lesson_development.lesson_development_view', compact('lesson_developments'));
     }
 
     /**
      * Show the form for creating a new resource.
-     */
+     */+
     public function create()
     {
-        //
+        if (!Auth::user()->can('edit-delete')) {
+            return redirect('/home')->with('error', 'you are not allowed to do this action');
+        }
         $term = term::where('is_active', 1)->get();
         $user = User::where('is_active', 1)->get();
         $darasa = darasa::where('is_active', 1)->get();

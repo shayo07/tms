@@ -18,13 +18,13 @@
                                 <div class="padding-2">
                                     <p><b>All Scheme Works</b></p>
                                 </div>
+                                @can('edit-delete', auth()->user()->id)
                                 <div class="padding-2 ml-2">
                                     <a href="{{route('schoolscheme.create')}}">
                                         <span class="badge bg-primary p-2">Add New Scheme of work</span>
                                     </a>
-
                                 </div>
-
+                                @endcan
                             </div>
                         </div>
                         <!-- /.card-header -->
@@ -38,7 +38,7 @@
                                     <th>Year</th>
                                     <th>Class</th>
                                     <th>View</th>
-                                    @can('edit-delete', auth()->user()->is_super)
+                                    @can('edit-delete', auth()->user()->id)
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     @endcan
@@ -46,7 +46,7 @@
                                 </thead>
                                 <tbody>
                                 @foreach($schemes as $scheme)
-                                    @can('view-logbook', $scheme)
+
                                         <tr>
                                             <td>{{$scheme->scheme_name}}</td>
                                             <td>{{$scheme->term->term_name}}</td>
@@ -60,7 +60,7 @@
                                                     </a>
                                                 </div>
                                             </td>
-                                            @can('edit-delete', auth()->user()->is_super)
+                                            @can('edit-delete', auth()->user()->id)
 
                                                 <td>
                                                     <div class="">
@@ -80,7 +80,6 @@
                                                 </td>
                                             @endcan
                                         </tr>
-                                    @endcan
                                 @endforeach
                                 </tbody>
 

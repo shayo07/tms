@@ -17,13 +17,13 @@
                                 <div class="padding-2">
                                     <p><b>All School Lesson Plans</b></p>
                                 </div>
+                                @can( 'edit-delete', auth()->user()->id)
                                 <div class="padding-2 ml-2">
                                     <a href="{{route('lesson_development.create')}}">
                                         <span class="badge bg-primary p-2">Add New LessonPlan</span>
                                     </a>
-
                                 </div>
-
+                                @endcan
                             </div>
 
 
@@ -39,10 +39,10 @@
                                     <th>Term</th>
                                     <th>class</th>
                                     <th>View</th>
-
+                                    @can( 'edit-delete', auth()->user()->id)
                                         <th>Edit</th>
                                         <th>Delete</th>
-
+                                    @endcan
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -59,6 +59,7 @@
                                                     </a>
                                                 </div>
                                             </td>
+                                            @can('edit-delete', auth()->user()->id)
                                                 <td>
                                                     <div class="">
                                                         <a href="{{ route('lesson_development.edit', $lesson_development->slug)}}">
@@ -75,8 +76,8 @@
                                                     </form>
 
                                                 </td>
+                                                @endcan
                                         </tr>
-
                                 @endforeach
                                 </tbody>
 

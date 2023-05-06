@@ -17,12 +17,13 @@
                                 <div class="padding-2">
                                     <p><b>All Logbooks</b></p>
                                 </div>
+                                @can('edit-delete', auth()->user()->id)
                                 <div class="padding-2 ml-2">
                                     <a href="{{route('schoollogbook.create')}}">
                                         <span class="badge bg-primary p-2">Add New Logbook</span>
                                     </a>
-
                                 </div>
+                                @endcan
 
                             </div>
 
@@ -40,7 +41,7 @@
                                     <th>Year</th>
                                     <th>Class</th>
                                     <th>View</th>
-                                    @can('edit-delete', auth()->user()->is_super)
+                                    @can('edit-delete', auth()->user()->id)
                                     <th>Edit</th>
                                     <th>Delete</th>
                                     @endcan
@@ -48,7 +49,6 @@
                                 </thead>
                                 <tbody>
                                 @foreach($logs as $log)
-                                    @can('view-logbook', $log)
                                     <tr>
                                         <td>{{$log->log_name}}</td>
                                         <td>{{$log->user->name }}</td>
@@ -62,8 +62,7 @@
                                                 </a>
                                             </div>
                                         </td>
-                                        @can('edit-delete', auth()->user()->is_super)
-
+                                        @can('edit-delete', auth()->user()->id)
                                         <td>
                                             <div class="">
                                                 <a href="{{ route('schoollogbook.edit', $log->slug)}}">
@@ -82,7 +81,6 @@
                                         </td>
                                             @endcan
                                     </tr>
-                                    @endcan
                                 @endforeach
                                 </tbody>
 

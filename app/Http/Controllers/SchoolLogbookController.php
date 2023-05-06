@@ -8,6 +8,7 @@ use App\Models\schoollogbook;
 use App\Models\term;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class SchoolLogbookController extends Controller
@@ -21,7 +22,15 @@ class SchoolLogbookController extends Controller
      */
     public function index()
     {
-        $logs = schoollogbook::where('is_active', 1)->get();
+        if (Auth::user()->is_admin)
+        {
+            $logs = schoollogbook::where('is_active', 1)->get();
+        }
+        else
+        {
+            $logs = schoollogbook::where('user_id', Auth::user()->id)->where('is_active', 1)->get();
+        }
+
         return view('schoollogbook.logbook_view', compact('logs'));
     }
 

@@ -22,22 +22,15 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Gate::define('view-logbook', function ($user, $logs){
-            if ($user->is_admin == 1){
-                return 1;
-            }else{
-                return $user->name === $logs->user->name;
-            }
-
-        });
 
         Gate::define('see-nav', function ($user){
-            return $user->is_admin === 1;
+            return $user->is_super;
         });
 
         Gate::define('edit-delete', function ($user){
-            return $user->is_admin === 1;
+            return $user->is_admin;
         });
 
     }
+
 }

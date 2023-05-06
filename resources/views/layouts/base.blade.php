@@ -185,7 +185,7 @@
                             </p>
                         </a>
                     </li>
-
+                        @can('see-nav', auth()->user()->id)
                     <li class="nav-header">ADMIN ACTIVITIES</li>
                     <li class="nav-item">
                         <a href="{{route('students.index')}}" class="nav-link">
@@ -229,7 +229,7 @@
                             </p>
                         </a>
                     </li>
-
+                    @endcan
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

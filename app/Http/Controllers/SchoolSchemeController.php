@@ -8,6 +8,7 @@ use App\Models\schoolscheme;
 use App\Models\term;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class SchoolSchemeController extends Controller
@@ -20,10 +21,15 @@ class SchoolSchemeController extends Controller
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
-
-        $schemes = schoolscheme::where('is_active', 1)->get();
+        if (Auth::user()->is_admin){
+            $schemes = schoolscheme::where('is_active', 1)->get();
+        }
+        else{
+            $schemes = schoolscheme::where('user_id', Auth::user()->id)->where('is_active', 1)->get();
+        }
         return view('schoolscheme.scheme_view', ['schemes' => $schemes]);
     }
 
