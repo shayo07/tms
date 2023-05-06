@@ -19,7 +19,7 @@ class darasa extends Model
     }
 
     public function subject(){
-        return $this->hasMany(subject::class);
+        return $this->hasMany(Subject::class);
     }
 
     public function schoolscheme(){
@@ -28,6 +28,18 @@ class darasa extends Model
 
     public function lessondevelopment(){
         return $this->hasMany(Lessondevelopment::class);
+    }
+
+    public function school_journal(){
+        return $this->hasMany(School_journal::class);
+    }
+
+    public function classes(){
+        return $this->hasMany(classes::class);
+    }
+
+    public function schoolattendance(){
+        return $this->hasMany(School_Attendance::class);
     }
 
 }

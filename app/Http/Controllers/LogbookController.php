@@ -46,8 +46,8 @@ class LogbookController extends Controller
             'time_finish' => 'required',
             'concept_covered' => 'required',
             'teachers_comment' => 'required',
-            'headofdepartment_comment' => 'nullable',
-            'headteachers_comment' => 'nullable',
+            'headofdepartment_comment' => 'required',
+            'headteachers_comment' => 'required',
         ]);
         $formdata['slug'] = Str::uuid()->getHex()."".date('is');
         $formdata['created_by'] = auth()->id();

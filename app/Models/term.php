@@ -15,6 +15,7 @@ class term extends Model
         return $this->hasMany('student');
     }
 
+
     public function user(){
         return $this->hasMany(User::class);
     }
@@ -29,6 +30,18 @@ class term extends Model
 
     public function lessondevelopment(){
         return $this->hasMany(Lessondevelopment::class);
+    }
+
+    public function school_journal(){
+        return $this->hasMany(School_journal::class);
+    }
+
+    public function classes(){
+        return $this->hasMany(classes::class);
+    }
+
+    public function schoolattendance(){
+        return $this->hasMany(School_Attendance::class);
     }
 
 

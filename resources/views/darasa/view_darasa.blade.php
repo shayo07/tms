@@ -39,7 +39,7 @@
                                     <th>Class Capacity</th>
                                     <th>Class Teacher</th>
                                     <th>Class status</th>
-                                    <th>Add Student</th>
+                                    <th>Classroom</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
@@ -54,8 +54,8 @@
                                     <td>{{$darasa->is_active}}</td>
                                         <td>
                                             <div class="">
-                                                <a href="/classes/{{$darasa->id}}">
-                                                    <button class="btn btn-primary">Add</button>
+                                                <a href="{{route('classroom.index', ['darasaID'=> $darasa->slug])}}">
+                                                    <button class="btn btn-primary">view classroom</button>
                                                 </a>
                                             </div>
                                         </td>

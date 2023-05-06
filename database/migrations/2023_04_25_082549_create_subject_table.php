@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('slug')->unique();
             $table->string('subject_name');
+            $table->integer('is_active');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->unsignedBigInteger('darasa_id');
             $table->foreign('darasa_id')->references('id')->on('darasa')->onDelete('cascade');

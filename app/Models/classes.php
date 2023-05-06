@@ -9,7 +9,7 @@ class classes extends Model
 {
     use HasFactory;
     protected  $table = 'classes';
-    protected $fillable= ['student', 'class'];
+    protected $fillable= ['student_id', 'darasa_id', 'term_id', 'slug', 'created_by'];
 
     public function darasa(){
         return $this->belongsTo(darasa::class);
@@ -18,4 +18,9 @@ class classes extends Model
     public  function student(){
         return $this->belongsTo(student::class);
     }
+
+    public function term(){
+        return $this->belongsTo(term::class);
+    }
+
 }

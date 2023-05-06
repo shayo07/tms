@@ -30,6 +30,9 @@
     <link rel="stylesheet" href="{{asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
     <link rel="stylesheet" href="{{asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
 
+
+    <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
+
     <script type="text/javascript">
         window.setTimeout(function () {
             $('.alerts').fadeTo(500, 0).slideUp(500, function () {
@@ -152,7 +155,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="pages/widgets.html" class="nav-link">
+                        <a href="{{ route('school_journal.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Journals
@@ -167,7 +170,7 @@
 
                     <li class="nav-header">MANAGE CLASSES</li>
                     <li class="nav-item">
-                        <a href="pages/calendar.html" class="nav-link">
+                        <a href="{{route('school_attendance.index')}}" class="nav-link">
                             <i class="nav-icon far fa-calendar-alt"></i>
                             <p>
                                 Attendance
@@ -182,7 +185,7 @@
                             </p>
                         </a>
                     </li>
-                    @can('see-nav', auth()->user()->id )
+
                     <li class="nav-header">ADMIN ACTIVITIES</li>
                     <li class="nav-item">
                         <a href="{{route('students.index')}}" class="nav-link">
@@ -217,7 +220,16 @@
                             </p>
                         </a>
                     </li>
-                        @endcan
+
+                    <li class="nav-item">
+                        <a href="{{route('subject.index')}}" class="nav-link">
+                            <i class="nav-icon fas fa-columns"></i>
+                            <p>
+                                Subject
+                            </p>
+                        </a>
+                    </li>
+
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
@@ -301,6 +313,10 @@
 <script src="{{asset('plugins/jszip/jszip.min.js')}}"></script>
 <script src="{{asset('plugins/pdfmake/pdfmake.min.js')}}"></script>
 <script src="{{asset('plugins/pdfmake/vfs_fonts.js')}}"></script>
+
+<!-- Summernote -->
+<script src="{{asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
+
 <script>
     $(function () {
         $("#example1").DataTable({
@@ -341,6 +357,23 @@
     @endforeach
     @endif
 </script>
+
+
+
+<!-- Page specific script -->
+<script>
+    $(function () {
+        // Summernote
+        $('#summernote').summernote()
+        $('#summernote1').summernote()
+        $('#summernote2').summernote()
+
+    })
+</script>
+
+
+
+
 
 
 <!-- AdminLTE App -->

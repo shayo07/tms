@@ -48,7 +48,7 @@
                                         <td>{{$schoollogbook->log_name}}</td>
                                         <td>{{$logbook->week_number}}</td>
                                         <td>{{$logbook->month_number}}</td>
-                                        <td>{{$logbook->main_topic}}</td>
+                                        <td>{!!$logbook->main_topic  !!}</td>
                                         <td><a href="{{ route('logbook.show', $logbook->slug)}}"><span class="badge bg-primary p-2">Details</span></a></td>
                                     </tr>
                                 @endforeach
@@ -56,6 +56,11 @@
 
                             </table>
                         </div>
+
+
+
+
+
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->

@@ -14,7 +14,7 @@ class logbook extends Model
 
     protected $table= 'logbook';
 
-    public function school_logbook(){
+    public function schoollogbook(){
         return $this->belongsTo(schoollogbook::class);
     }
 

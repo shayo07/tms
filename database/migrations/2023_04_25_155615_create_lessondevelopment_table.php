@@ -77,7 +77,7 @@ return new class extends Migration
         Schema::create('lesson_evaluations', function (Blueprint $table){
             $table->id();
             $table->string('slug')->unique();
-            $table->unsignedBigInteger('lesson_development_id');
+            $table->unsignedBigInteger('lessondevelopment_id');
             $table->string('student_evaluation');
             $table->string('teachers_evaluation');
             $table->string('remarks');

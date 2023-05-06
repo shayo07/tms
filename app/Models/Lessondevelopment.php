@@ -28,4 +28,12 @@ class Lessondevelopment extends Model
     public function lesson_plan(){
         return $this->hasMany(Lesson_plan::class);
     }
+
+    public function lesson_dev(){
+        return $this->hasMany(Lesson_dev::class);
+    }
+
+    public function lesson_evaluation(){
+        return $this->hasMany(Lesson_evaluation::class);
+    }
 }

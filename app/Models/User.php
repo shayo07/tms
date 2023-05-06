@@ -60,4 +60,16 @@ class User extends Authenticatable
     public function lesson_development(){
         return $this->hasMany(Lessondevelopment::class);
     }
+
+    public function school_journal(){
+        return $this->hasMany(School_journal::class);
+    }
+
+    public function schoolattendance(){
+        return $this->hasMany(School_Attendance::class);
+    }
+
+    public function subject(){
+        return $this->hasMany(Subject::class);
+    }
 }

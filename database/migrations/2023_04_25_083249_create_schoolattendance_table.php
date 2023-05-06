@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('schoolattendance', function (Blueprint $table) {
+        Schema::create('school_attendance', function (Blueprint $table) {
             $table->id();
             $table->string('slug');
             $table->unsignedBigInteger('term_id');
+            $table->unsignedBigInteger('darasa_id');
             $table->string('attendance_name');
+            $table->integer('is_active');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->bigInteger('created_by');
             $table->timestamp('created_at')->useCurrent();
@@ -24,12 +26,13 @@ return new class extends Migration
             $table->bigInteger('deleted_by')->nullable();
             $table->timestamp('deleted_at')->nullable();
             $table->foreign('term_id')->references('id')->on('term')->onDelete('cascade');
+            $table->foreign('darasa_id')->references('id')->on('darasa')->onDelete('cascade');
         });
 
         Schema::create('attendance', function (Blueprint $table){
             $table->id();
             $table->string('slug');
-            $table->unsignedBigInteger('attendance_id');
+            $table->unsignedBigInteger('school_attendance_id');
             $table->unsignedBigInteger('student_id');
             $table->string('status');
             $table->date('date');
@@ -39,17 +42,16 @@ return new class extends Migration
             $table->timestamp('updated_at')->nullable();
             $table->bigInteger('deleted_by')->nullable();
             $table->timestamp('deleted_at')->nullable();
-            $table->foreign('attendance_id')->references('id')->on('schoolattendance')->onDelete('cascade');
+            $table->foreign('school_attendance_id')->references('id')->on('school_attendance')->onDelete('cascade');
             $table->foreign('student_id')->references('id')->on('student')->onDelete('cascade');
 
         });
     }
-
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('schoolattendance');
+        Schema::dropIfExists('school_attendance');
     }
 };

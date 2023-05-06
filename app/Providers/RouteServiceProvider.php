@@ -2,14 +2,23 @@
 
 namespace App\Providers;
 
+use App\Models\Attendance;
+use App\Models\classes;
 use App\Models\darasa;
+use App\Models\Journal;
+use App\Models\Journal_Report;
+use App\Models\Lesson_dev;
+use App\Models\Lesson_evaluation;
 use App\Models\Lesson_plan;
 use App\Models\Lessondevelopment;
 use App\Models\logbook;
 use App\Models\scheme;
+use App\Models\School_Attendance;
+use App\Models\School_journal;
 use App\Models\schoollogbook;
 use App\Models\schoolscheme;
 use App\Models\student;
+use App\Models\subject;
 use App\Models\term;
 use App\Models\User;
 use Illuminate\Cache\RateLimiting\Limit;
@@ -73,6 +82,45 @@ class RouteServiceProvider extends ServiceProvider
         Route::bind('lesson_plan', function ($slug){
             return Lesson_plan::where('slug', $slug)->first();
         });
+
+        Route::bind('lesson_dev', function ($slug){
+            return Lesson_dev::where('slug', $slug)->first();
+        });
+
+        Route::bind('school_journal', function ($slug){
+            return School_journal::where('slug', $slug)->first();
+        });
+
+        Route::bind('lesson_evaluation', function ($slug){
+            return Lesson_evaluation::where('slug', $slug)->first();
+        });
+
+        Route::bind('journal', function ($slug){
+            return Journal::where('slug', $slug)->first();
+        });
+
+        Route::bind('journal_report', function ($slug){
+            return Journal_Report::where('slug', $slug)->first();
+        });
+
+        Route::bind('classroom', function ($slug){
+            return classes::where('slug', $slug)->first();
+        });
+
+        Route::bind('school_attendance', function ($slug){
+            return School_Attendance::where('slug', $slug)->first();
+        });
+
+        Route::bind('attendance', function ($slug){
+        return Attendance::where('slug', $slug)->first();
+         });
+
+        Route::bind('subject', function ($slug){
+            return subject::where('slug', $slug)->first();
+        });
+
+
+
 
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());

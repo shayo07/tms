@@ -41,11 +41,9 @@
                     <td>3.</td>
                     <td>Main Topic</td>
                     <td>
-                        <b>
-                            <div class="form-group">
-                                <textarea id="main_topic" class=" form-control border-0 bg-white" rows="3" disabled>{{ $logbooks->main_topic}}</textarea>
-                            </div>
-                        </b>
+
+                               {!!  $logbooks->main_topic !!}
+
                     </td>
 
                 </tr>
@@ -53,11 +51,9 @@
                     <td>4.</td>
                     <td>Sub topic</td>
                     <td>
-                        <b>
-                            <div class="form-group">
-                                <textarea id="main_topic" class=" form-control border-0 bg-white" rows="3" disabled>{{ $logbooks->sub_topic}}</textarea>
-                            </div>
-                        </b>
+
+                          {!! $logbooks->sub_topic !!}
+
                     </td>
                 </tr>
                 <tr>
@@ -82,11 +78,9 @@
                     <td>6.</td>
                     <td>Concept Covered</td>
                     <td>
-                        <b>
-                            <div class="form-group">
-                                <textarea id="main_topic" class=" form-control border-0 bg-white" rows="3" disabled>{{ $logbooks->concept_covered}}</textarea>
-                            </div>
-                        </b>
+
+                            {!! $logbooks->concept_covered!!}
+
                     </td>
                 </tr>
                 <tr>

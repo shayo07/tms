@@ -196,17 +196,16 @@
 
         <div class="row py-2">
             <div class="padding-2">
-                <a href="{{route('lesson_plan.edit', $lesson_plan->slug) }}">
+                <a href="{{route('lesson_dev.index', ['lesson_plan' => $lesson_plan->lessondevelopment->slug ]) }}">
                     <button class="btn btn-primary">Lesson Development</button>
                 </a>
             </div>
 
             <div class="padding-2 ml-1">
-                <a href="{{route('lesson_plan.edit', $lesson_plan->slug) }}">
+                <a href="{{route('lesson_evaluation.index', ['lesson_development' => $lesson_plan->lessondevelopment->slug]) }}">
                     <button class="btn btn-primary">Lesson Evaluation</button>
                 </a>
             </div>
-
         </div>
     </div>
     <!-- /.card -->

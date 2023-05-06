@@ -16,7 +16,7 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="term"> School Logbook</label>
-                            <select class="form-control" id="school_logbook" name="school_logbook" >
+                            <select class="form-control" id="schoollogbook_id" name="schoollogbook_id" >
                                 @foreach($logbook as $log)
                                     <option value="{{$log->id}}">{{$log->log_name}}</option>
                                 @endforeach
@@ -49,43 +49,64 @@
                     </div>
 
 
-                    <div class="col-sm-6">
-                        <!-- textarea -->
-                        <div class="form-group">
-                            <label>Main Topic</label>
-                            <textarea id="main_topic" class="form-control @error('main_topic') is-invalid @enderror" rows="3" value="" name="main_topic" placeholder="Enter ...">{{ old('main_topic')}}</textarea>
-                        </div>
-                        @error('main_topic')
-                        <span class="invalid-feedback" role="alert">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                                    <label for="">Main Topic</label>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                          <textarea id="summernote" class="form-control @error('main_topic') is-invalid @enderror" rows="3" value="" name="main_topic" placeholder="Enter ...">
+                            Place <em>some</em> <u>text</u> <strong>here</strong>
+                          </textarea>
+                                </div>
+                                @error('main_topic')
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                        @enderror
+                                @enderror
+                        </div>
+                        <!-- /.col-->
                     </div>
 
-                    <div class="col-sm-6">
-                        <!-- textarea -->
-                        <div class="form-group">
-                            <label>Sub Topic</label>
-                            <textarea id="sub_topic" class="form-control @error('sub_topic') is-invalid @enderror" rows="3" value="" name="sub_topic" placeholder="Enter ...">{{ old('sub_topic')}}</textarea>
-                        </div>
-                        @error('sub_topic')
-                        <span class="invalid-feedback" role="alert">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="">Sub Topic</label>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                          <textarea id="summernote1" class="form-control @error('sub_topic') is-invalid @enderror" rows="3" value="" name="sub_topic" placeholder="Enter ...">
+                            Place <em>some</em> <u>text</u> <strong>here</strong>
+                          </textarea>
+                            </div>
+                            @error('sub_topic')
+                            <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                        @enderror
-                    </div>
-                    <div class="col-sm-6">
-                        <!-- textarea -->
-                        <div class="form-group">
-                            <label>Concept Covered</label>
-                            <textarea id="concept_covered" class="form-control @error('concept_covered') is-invalid @enderror" rows="3" value="" name="concept_covered" placeholder="Enter ...">{{ old('concept_covered')}}</textarea>
+                            @enderror
                         </div>
-                        @error('concept_covered')
-                        <span class="invalid-feedback" role="alert">
+                        <!-- /.col-->
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="">Concept covered</label>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                          <textarea id="summernote2" class="form-control @error('concept_covered') is-invalid @enderror" rows="3" value="" name="concept_covered" placeholder="Enter ...">
+                            Place <em>some</em> <u>text</u> <strong>here</strong>
+                          </textarea>
+                            </div>
+                            @error('concept_covered')
+                            <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                        @enderror
+                            @enderror
+                        </div>
+                        <!-- /.col-->
                     </div>
+
+
 
                 </div>
                     <div class="row">
@@ -93,10 +114,7 @@
                         <div class="form-group">
                             <label for="inputName">Time Start</label>
                             <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                                </div>
-                                <input id="time_start" type="text"  class="form-control @error('time_start') is-invalid @enderror" name="time_start" value="{{ old('time_start')}}" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                <input id="time_start" type="date"  class="form-control @error('time_start') is-invalid @enderror" name="time_start" value="{{ old('time_start')}}" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                             </div>                            @error('time_start')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -111,10 +129,7 @@
                         <div class="form-group">
                             <label for="inputName">Time finish</label>
                             <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                                </div>
-                                <input id="time_finish" type="text"  class="form-control @error('time_finish') is-invalid @enderror" name="time_finish" value="{{ old('time_finish')}}" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                <input id="time_finish" type="date"  class="form-control @error('time_finish') is-invalid @enderror" name="time_finish" value="{{ old('time_finish')}}" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                             </div>
                             <!-- /.input group -->
                             @error('time_finish')
@@ -174,6 +189,7 @@
                         <button type="submit" class="btn btn-primary btn-block">Add Logbook</button>
                     </div>
                 </div>
+
 
             </form>
         </div>
